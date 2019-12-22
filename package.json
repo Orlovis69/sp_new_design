@@ -1,0 +1,61 @@
+{
+  "name": "spmob_new_design",
+  "version": "1.0.0",
+  "description": "design update for spmob",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass development/sass/main.scss development/css/style.css -w",
+    "build": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Orlovis69/spmob_new_design.git"
+  },
+  "author": "Evan Rosenberg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Orlovis69/spmob_new_design/issues"
+  },
+  "homepage": "https://github.com/Orlovis69/spmob_new_design#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.7.3",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "babel-preset-env": "^1.7.0",
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-newer": "^1.4.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-purgecss": "^1.2.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-stylelint": "^11.0.0",
+    "node-sass": "^4.13.0",
+    "postcss": "^7.0.25",
+    "postcss-css-variables": "^0.14.0",
+    "prettier": "^1.19.1",
+    "prettier-stylelint": "^0.4.2",
+    "pump": "^3.0.0",
+    "stylelint": "^12.0.0",
+    "stylelint-config-prettier": "^8.0.0",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-order": "^3.1.1",
+    "stylelint-prettier": "^1.1.2",
+    "stylelint-scss": "^3.13.0"
+  },
+  "dependencies": {},
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {},
+      "postcss-css-variables": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 10 versions",
+    "not ie <= 6"
+  ]
+}

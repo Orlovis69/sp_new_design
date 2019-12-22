@@ -1,0 +1,140 @@
+%title {
+  font-family: $font-title;
+  font-weight: bold;
+  line-height: 1;
+}
+%heading {
+  font-family: $font-heading;
+  font-weight: bold;
+  line-height: 1.2;
+}
+%paragraph {
+  font-family: $font-main;
+  font-weight: normal;
+  line-height: 1.38;
+}
+
+.heading {
+  &-1 {
+    @extend %title;
+    font-size: 3.2em;
+    @media screen and (max-width: $bp-small) {
+      font-size: 2.5em;
+      // font-size: 8.75vw;
+    }
+  }
+  &-2 {
+    @extend %heading;
+    font-size: 1.875em;
+    @media screen and (max-width: $bp-small) {
+      font-size: 2.5em;
+      // font-size: 9vw;
+    }
+  }
+  &-3 {
+    @extend %heading;
+    font-size: 1.1em;
+  }
+  &-4 {
+    @extend %heading;
+    font-size: 0.9em;
+  }
+}
+.paragraph {
+  @extend %paragraph;
+  font-size: 1em;
+}
+
+.header--hero {
+  & span {
+    color: $color-pink;
+  }
+}
+
+.main--section {
+  @media screen and (max-width: $bp-small) {
+    font-size: 1.4em;
+  }
+}
+.features {
+  & span {
+    @media screen and (max-width: $bp-small) {
+      font-size: 0.5em;
+    }
+  }
+  &-caption {
+    @extend %paragraph;
+    text-align: center;
+    font-size: 1.1em;
+    @media screen and (max-width: $bp-small) {
+      text-align: left;
+      // font-size: 1.5em;
+    }
+  }
+  & .paragraph {
+    font-size: 1.4em;
+    @media screen and (max-width: $bp-small) {
+      font-size: 1em;
+    }
+  }
+}
+.procedure {
+  color: $color-white;
+  &-item:nth-child(2) {
+    text-align: right;
+  }
+}
+.form {
+  & input[type="tel"],
+  & label {
+    font-size: 0.8em;
+    color: $color-grey-dark;
+    @media screen and (max-width: $bp-small) {
+      font-size: 1em;
+    }
+  }
+  & input[type="tel"] {
+    &:placeholder-shown label {
+      font-size: 0.6em;
+    }
+  }
+}
+.btn {
+  color: $color-white;
+  font-family: $font-main--bold;
+  font-size: 1em;
+  line-height: 1.38;
+  @media screen and (max-width: $bp-small) {
+    // font-size: 1.4em;
+  }
+  &:hover {
+    color: $color-white;
+  }
+}
+.cta {
+  & a.link--offer {
+    text-decoration: underline;
+    &,
+    &:link,
+    &:visited {
+      color: currentColor;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      color: $color-blue;
+    }
+  }
+  .error {
+    color: $color-pink;
+  }
+}
+.faq {
+  .paragraph {
+    font-size: 0.8em;
+  }
+}
+
+.footer {
+  color: $color-grey-dark;
+}

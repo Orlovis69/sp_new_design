@@ -1,0 +1,117 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-size: calc(0.5em + 1vw);
+}
+
+html {
+  box-sizing: inherit;
+}
+body {
+  max-width: 100%;
+}
+
+input,
+textarea,
+select,
+button {
+  font-size: inherit;
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+@font-face {
+  font-family: "tele2-stencil-bold";
+  src: url("../fonts/Tele2StandardCTStencilBold/StandardStencil-Boldmedia.eot"); /* IE9 Compat Modes */
+  src: url("../fonts/Tele2StandardCTStencilBold/StandardStencil-Boldmedia.eot?#iefix")
+    format("embedded-opentype"),
+    url("../fonts/Tele2StandardCTStencilBold/StandardStencil-Boldmedia.otf")
+    format("opentype"),
+    url("../fonts/Tele2Standard    cilBold/StandardStencil-Boldmedia.svg")
+    format("svg"),
+    url("../fonts/Tele2StandardCTStencilBold/St    Stencil-Boldmedia.ttf")
+    format("truetype"),
+    url("../fonts/Tele2StandardCTStencilBold/StandardStencil-Boldmedia.woff")
+    format("woff"),
+    url("../fonts/Tele2StandardCTStencilBold/StandardStencil-Boldmedia.woff2")
+    format("woff2"); /* Modern Browsers */
+
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "tele2-serif-bold";
+  src: url("../fonts/Tele2DisplaySerif-Bold-short_W/Tele2DisplaySerif-Bold-short__W.eot")
+    format("eot"),
+    url("../fonts/Tele2DisplaySerif-Bold-short_W/Tele2DisplaySerif-Bold-short__W.svg")
+    format("svg"),
+    url("../fonts/Tele2DisplaySerif-Bold-short_W/Tele2DisplaySerif-Bold-short__W.ttf")
+    format("truetype"),
+    url("../fonts/Tele2DisplaySerif-Bold-short_W/Tele2DisplaySerif-Bold-short__W.woff")
+    format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "tele2-serif-regular";
+  src: url("../fonts/Tele2DisplaySerif-Regular-short_W/Tele2DisplaySerif-Regular-short__W.eot")
+    format("eot"),
+    url("../fonts/Tele2DisplaySerif-Regular-short_W/Tele2DisplaySerif-Regular-short__W.svg")
+    format("svg"),
+    url("../fonts/Tele2DisplaySerif-Regular-short_W/Tele2DisplaySerif-Regular-short__W.ttf")
+    format("ttf"),
+    url("../fonts/Tele2DisplaySerif-Regular-short_W/Tele2DisplaySerif-Regular-short__W.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "tele2-sans-bold";
+  src: url("../fonts/Tele2TextSans-Bold-short_W/Tele2TextSans-Bold-short__W.eot")
+    format("eot"),
+    url("../fonts/Tele2TextSans-Bold-short_W/Tele2TextSans-Bold-short__W.svg")
+    format("svg"),
+    url("../fonts/Tele2TextSans-Bold-short_W/Tele2TextSans-Bold-short__W.ttf")
+    format("truetype"),
+    url("../fonts/Tele2TextSans-Bold-short_W/Tele2TextSans-Bold-short__W.woff")
+    format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "tele2-sans-regular";
+  src: url("../fonts/Tele2TextSans-Regular-short_W/Tele2TextSans-Regular-short__W.eot")
+    format("eot"),
+    url("../fonts/Tele2TextSans-Regular-short_W/Tele2TextSans-Regular-short__W.svg")
+    format("svg"),
+    url("../fonts/Tele2TextSans-Regular-short_W/Tele2TextSans-Regular-short__W.ttf")
+    format("ttf"),
+    url("../fonts/Tele2TextSans-Regular-short_W/Tele2TextSans-Regular-short__W.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}

@@ -1,0 +1,424 @@
+.header {
+  &--hero {
+    background-color: $color-grey-light;
+    height: 85vh;
+    min-height: 35em;
+    overflow-x: hidden;
+    @media screen and (max-width: $bp-small) {
+      height: 95vw;
+    }
+    & h1 {
+      display: inline-block;
+      padding: 0 0 2em 2em;
+      width: 65%;
+      z-index: 10;
+      @media screen and (max-width: $bp-small) {
+        padding: 0 0 11.56vw 5.625vw;
+        width: 90%;
+      }
+    }
+    & .hero__img {
+      width: 20em;
+      @media screen and (max-width: $bp-small) {
+        width: 49vw;
+      }
+    }
+  }
+  &--section {
+    padding: 3.5em 5em 2em;
+    padding: 11vw 10vw 0;
+    @media screen and (min-width: $bp-largest) {
+      padding: 5em 8em 3em;
+    }
+    @media screen and (max-width: $bp-small) {
+      padding: 16vw 5.6vw 0;
+    }
+    & h2 {
+      position: relative;
+      &::before {
+        content: "";
+        width: 2em;
+        height: 0.4em;
+        background-color: $color-black;
+        @media screen and (max-width: $bp-small) {
+          width: 16.6vw;
+          height: 1.875vw;
+        }
+      }
+    }
+    &.header--dark h2::before {
+      background-color: $color-white;
+    }
+  }
+}
+
+.main--section {
+  padding: 0 10vw 5.4vw;
+  @media screen and (min-width: $bp-largest) {
+    padding: 0 8em 5em;
+  }
+  @media screen and (max-width: $bp-small) {
+    padding: 6.25vw 5.6vw 11vw;
+  }
+}
+
+.cta .main--section {
+  padding: 0 10vw;
+  @media screen and (max-width: $bp-small) {
+    padding: 6.25vw 5.6vw 0;
+  }
+}
+
+.footer {
+  padding: 3.8em 10em 3.8em 5em;
+  background-color: $color-black;
+  @media screen and (max-width: $bp-small) {
+    padding: 6.25vw 5.6vw 11vw;
+  }
+  & .paragraph:first-of-type {
+    margin-bottom: 1em;
+  }
+}
+
+.features {
+  overflow-x: hidden;
+  & .header--section {
+    & span {
+      display: block;
+      margin-top: 0.1em;
+      @media screen and (max-width: $bp-small) {
+        margin-top: 0.5em;
+      }
+    }
+  }
+  &-list {
+    margin: 3.1vw 0;
+  }
+  &-item {
+    @media screen and (max-width: $bp-small) {
+      width: 100%;
+      &:not(:last-child) {
+        margin-bottom: 3.125vw;
+      }
+    }
+  }
+  &-img {
+    width: 8.5em;
+    height: 100%;
+    height: 8.6em;
+    @media screen and (max-width: $bp-small) {
+      display: none;
+    }
+  }
+  &-caption {
+    width: 90%;
+    margin: 0.8em auto;
+    @media screen and (max-width: $bp-small) {
+      margin: 0;
+      &::before {
+        content: "";
+        display: inline-block;
+        width: 7.5vw;
+        height: 2.1vw;
+        background: $color-black;
+        margin-right: 6.25vw;
+      }
+    }
+  }
+}
+
+.procedure {
+  background-color: $color-black;
+  &-list {
+    max-width: 65vw;
+    margin: 4.9vw auto 0;
+    @media screen and (max-width: $bp-medium-small) {
+      max-width: 70vw;
+    }
+  }
+  &-item {
+    &:nth-child(1) {
+      // margin-top: 1em;
+    }
+    &:nth-child(2),
+    &:nth-child(3) {
+      margin-top: -3.5vw;
+      @media screen and (max-width: $bp-small) {
+        margin-top: 0;
+      }
+    }
+    &:nth-child(2n + 1) {
+      & .procedure-arrow {
+        margin-left: 3vw;
+        @media screen and (max-width: $bp-small) {
+          margin-left: 0;
+          transform: rotate(90deg);
+        }
+      }
+      & .procedure-caption {
+        margin-left: -5vw;
+      }
+    }
+    &:nth-child(2n) {
+      & .procedure-arrow {
+        margin-right: 3vw;
+        @media screen and (max-width: $bp-small) {
+          margin-right: 0;
+          transform: rotate(-90deg);
+        }
+      }
+      & .procedure-caption {
+        margin-right: -5vw;
+      }
+    }
+  }
+  &-img {
+    width: 26.6vw;
+    margin-bottom: 3.56vw;
+    @media screen and (max-width: $bp-small) {
+      width: 60vw;
+    }
+  }
+  &-arrow {
+    width: 20vw;
+    @media screen and (max-width: $bp-small) {
+      width: 33vw;
+    }
+  }
+  &-figure {
+    width: min-content;
+  }
+  &-caption {
+    & h3 {
+      margin-bottom: 0.5em;
+    }
+  }
+}
+
+.form {
+  margin-bottom: 2.45vw;
+  margin-top: 4.9vw;
+  @media screen and (max-width: $bp-small) {
+    margin-top: 0.5em;
+  }
+  & > * {
+    &:not(:last-child) {
+      // margin-bottom: 2em;
+    }
+  }
+  & input[type="tel"] {
+    -webkit-appearance: none;
+    padding: 1.2em;
+    background-color: $color-grey-light;
+    width: 20em;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid transparent;
+    min-height: 3em;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    box-shadow: 0 0.5em 0.8em rgba(0, 0, 0, 0.2);
+    &:valid {
+      color: #3fcbff;
+    }
+    &:invalid {
+      border-bottom: 2px solid #ff59a3;
+    }
+    @media screen and (max-width: $bp-small) {
+      width: 88.8vw;
+      min-height: 15vw;
+    }
+
+    &:placeholder-shown {
+      border-bottom: 2px solid $color-grey-dark;
+      box-shadow: none;
+
+      & + label {
+        visibility: hidden;
+        opacity: 0;
+        transform: translate(1.2em, -50%);
+      }
+    }
+  }
+  & input[type="submit"] {
+    margin-top: 2em;
+    outline: none;
+  }
+  & label {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(-350%);
+    transition: opacity 0.2s ease-in, transform 0.3s ease-out 0.2s;
+  }
+  & .error {
+    // background-color: orangered;
+    // margin: 0.5em 0;
+    padding-left: 1.2em;
+    display: block;
+    // display: none;
+  }
+}
+
+.btn {
+  cursor: pointer;
+  padding: 1em 3em;
+  min-width: 11.6em;
+  border: 2px solid $color-black;
+  border-radius: 2em;
+  transition: all 0.5s ease-in-out;
+  @media screen and (max-width: $bp-small) {
+    min-width: 55.5vw;
+    // height: 15vw;
+  }
+  &--black {
+    background-color: $color-black;
+    &:hover {
+      background-color: $color-grey;
+      border-color: $color-grey;
+    }
+  }
+}
+
+.cta {
+  & .paragraph:first-of-type {
+    margin-bottom: 0.5em;
+    @media screen and (max-width: $bp-small) {
+      margin-bottom: 3vw;
+    }
+  }
+  & a.link--offer {
+    transition: all 0.3s ease-out;
+  }
+}
+
+.faq {
+  & header {
+  }
+  &-list {
+    width: 70vw;
+    @media screen and (max-width: $bp-small) {
+      width: 89vw;
+    }
+  }
+  &-item {
+    padding: 1.5em 0;
+    border-bottom: 1px solid $color-stroke;
+    @media screen and (max-width: $bp-small) {
+      padding: 4.375vw 0;
+    }
+    &:first-child {
+      border-top: 1px solid $color-stroke;
+    }
+    &.active {
+      & .faq-answer {
+        display: block;
+      }
+      &.visible .faq-answer {
+        opacity: 1;
+        visibility: visible;
+      }
+      & .icon--close-arrow {
+        &::before {
+          transform: translateX(0.5em) rotate(-45deg);
+          @media screen and (max-width: $bp-small) {
+            transform: translateX(1.2vw) rotate(-45deg);
+          }
+        }
+        &::after {
+          transform: translateX(-0.5em) rotate(45deg);
+          @media screen and (max-width: $bp-small) {
+            transform: translateX(-1.2vw) rotate(45deg);
+          }
+        }
+      }
+    }
+  }
+  &-title {
+    @media screen and (max-width: $bp-small) {
+      width: 80%;
+    }
+  }
+  &-answer {
+    opacity: 0;
+    visibility: hidden;
+    margin-top: 1em;
+    display: none;
+    transition: all 0.4s ease-in;
+  }
+}
+
+.icon--close-arrow {
+  cursor: pointer;
+  height: min-content;
+  width: 3em;
+  @media screen and (max-width: $bp-small) {
+    width: 3.9vw;
+  }
+  &:hover {
+    &::before,
+    &::after {
+      background-color: $color-blue;
+    }
+  }
+  &::before,
+  &::after {
+    content: "";
+    display: inline-block;
+    background-color: $color-black;
+    width: 2px;
+    height: 1.4em;
+    border-radius: 0.5em;
+    transition: 300ms ease-in-out transform, 300ms ease-in-out background-color;
+    @media screen and (max-width: $bp-small) {
+      height: 3.5vw;
+    }
+  }
+  &::before {
+    transform: rotate(-45deg);
+  }
+
+  &::after {
+    transform: rotate(45deg);
+  }
+}
+
+// FIGURES
+.circle {
+  width: 12em;
+  height: 12em;
+  border-radius: 50%;
+  transition: transform 5s ease-in-out;
+  @media screen and (max-width: $bp-small) {
+    width: 27vw;
+    height: 27vw;
+  }
+}
+.box {
+  width: 9em;
+  height: 1em;
+  transition: transform 5s ease-in-out;
+  @media screen and (max-width: $bp-small) {
+    width: 17.5vw;
+    height: 2.5vw;
+  }
+}
+.wave {
+  width: 9em;
+  height: 2em;
+  object-fit: contain;
+  transition: transform 5s ease-in-out;
+  @media screen and (max-width: $bp-small) {
+    width: 17.5vw;
+    height: 5.5vw;
+  }
+}
+
+.blue {
+  background-color: $color-blue;
+}
+.pink {
+  background-color: $color-pink;
+}
+.black {
+  background-color: $color-black;
+}
