@@ -22,6 +22,10 @@ const paths = {
     src: "./development/img/**.*",
     dest: "./production/img/"
   },
+  fonts: {
+    src: "./development/fonts/**/**.*",
+    dest: "./production/fonts/"
+  },
   styles: {
     src: "./development/**/*.scss",
     dest: "./production/css/"
@@ -73,22 +77,35 @@ export function images(done) {
   );
 }
 
+// Fonts copy and paste
+export function fonts(done) {
+  pump(
+    [
+      gulp.src(paths.fonts.src),
+      newer(paths.fonts.dest),
+      gulp.dest(paths.fonts.dest)
+    ],
+    done
+  );
+}
+
 // CSS copy and paste
 export function styles(done) {
   pump(
     [
       gulp.src(paths.styles.src),
       newer(paths.dest),
-      sass().on("error", sass.logError),
-      rename("style.css"),
-      // purgecss({
-      //   content: [paths.html.src]
-      // }),
       stylelint({
         reporters: [{ formatter: "string", console: true }],
         failAfterError: false,
         fix: true
       }),
+      sass().on("error", sass.logError),
+      rename("style.css"),
+      // purgecss({
+      //   content: [paths.html.src]
+      // }),
+
       postcss({}),
       cssnano(),
       gulp.dest(paths.styles.dest)
@@ -122,13 +139,23 @@ export function php(done) {
 export function watch() {
   gulp.watch(paths.html.src, gulp.series(html, reload));
   gulp.watch(paths.images.src, gulp.series(images, reload));
+  gulp.watch(paths.fonts.src, gulp.series(fonts, reload));
   gulp.watch(paths.styles.src, gulp.series(styles, reload));
   gulp.watch(paths.scripts.src, gulp.series(scripts, reload));
   gulp.watch(paths.php.src, gulp.series(php, reload));
 }
 
 // Map out sequence of events on first load
-const firstRun = gulp.series(html, images, styles, scripts, php, serve, watch);
+const firstRun = gulp.series(
+  html,
+  images,
+  fonts,
+  styles,
+  scripts,
+  php,
+  serve,
+  watch
+);
 
 // Run the whole thing
 export default firstRun;

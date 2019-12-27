@@ -1,9 +1,9 @@
-.artboard {
-  fill: #fff;
-  &:hover .stroke-black.animate {
-    animation: stroke 5s linear alternate infinite;
-  }
-}
+// .artboard {
+//   fill: #fff;
+//   &:hover .stroke-black.animate {
+//     animation: stroke 3s linear forwards;
+//   }
+// }
 .stroke-black {
   fill: none;
   stroke: #21232c;
@@ -13,36 +13,49 @@
   // stroke-dashoffset: 1000;
   stroke-dasharray: 1000;
   transition: all 0.5s;
-  &.animate {
-    animation: stroke 3s linear alternate infinite;
-  }
 }
 
-.features-item:hover .cracks .stroke-black.out {
-  animation: stroke 2s forwards ease-in;
+.__animate {
+  transform: translateZ(0);
+  // display: none;
+}
+.ok-group,
+.wave-svg {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.check-group,
+.spark {
+  will-change: opacity;
+}
+
+.features-item:hover .cracks .stroke-black {
+  animation: stroke 3s linear forwards infinite;
+  // animation: stroke 2s forwards ease-in;
 }
 
 .features-item:hover .cracks .stroke-black.in {
-  animation: stroke-back 2s forwards ease-in;
+  // animation: stroke-back 2s forwards ease-in;
 }
 /* Delay for last crack */
 .features-item:hover .cracks .stroke-black.out.delay {
-  animation: stroke 2s infinite forwards ease-in;
+  // animation: stroke 2s infinite forwards ease-in;
   // animation-delay: 1s;
 }
 
-.artboard {
-  fill: #fff;
-}
+// .artboard {
+//   fill: #fff;
+// }
 
-.cracks .stroke-black {
-  stroke-dashoffset: 0;
-  stroke-dasharray: 1000;
-}
-.cracks .stroke-black.in {
-  stroke-dashoffset: 0;
-  stroke-dasharray: 1000;
-}
+// .cracks .stroke-black {
+//   stroke-dashoffset: 0;
+//   stroke-dasharray: 1000;
+// }
+// .cracks .stroke-black.in {
+//   stroke-dashoffset: 0;
+//   stroke-dasharray: 1000;
+// }
 
 .spark {
   animation: appear 2s linear infinite;
@@ -60,29 +73,31 @@
 .spark {
   fill: white;
   opacity: 1;
+  will-change: opacity;
 }
 
 .wave-svg {
   stroke-width: 8;
   stroke: #01cbfd;
   stroke-dasharray: 90;
-  animation: strokeWave 2s infinite;
+  animation: strokeWave 2s forwards;
   stroke-dashoffset: 0;
 }
 
 .ok-group {
-  stroke-width: 4;
+  stroke-width: 3;
   stroke: $color-white;
   stroke-dasharray: 1000;
-  animation: stroke 3s infinite;
   stroke-dashoffset: 0;
+  will-change: transform(translateZ);
+}
+
+.procedure-item:hover .ok-group {
+  animation: stroke 2s forwards infinite;
 }
 
 #message {
   fill: black;
-}
-
-#sms {
 }
 
 .check-group {
@@ -90,6 +105,7 @@
     fill: $color-black;
     opacity: 1;
     animation: ok 5s linear infinite;
+    will-change: opacity;
     &:nth-child(2) {
       animation-delay: 0.5s;
     }
@@ -124,20 +140,6 @@ svg:hover {
     // animation: color 5s linear inf inite alternate;
   }
   & .ok {
-    animation: ok 5s linear infinite alternate;
+    animation: ok 5s linear forwards infinite;
   }
 }
-
-// #message {
-//   & .letter {
-//     animation: appear 1s linear infinite forwards;
-//     &:nth-child(2) {
-//       animation: appear 1s linear infinite forwards;
-//       animation-delay: 0.3s;
-//     }
-//     &:nth-child(3) {
-//       animation-delay: 0.6s;
-//       animation: appear 1s linear infinite forwards;
-//     }
-//   }
-// }x

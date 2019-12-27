@@ -6,6 +6,6 @@
     "prettier/prettier": true,
     "indentation": 2,
     "number-leading-zero": null,
-    "color-named": "always-where-possible"
+    "max-empty-lines": 2
   }
 }

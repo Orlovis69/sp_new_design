@@ -106,7 +106,7 @@ class mixplat{
 		//	Получилось подписаться
 		if(!empty($curl_out['result']) && $curl_out['result']=='ok') {
 			//redirect to success page
-			header('Location: ../thanks.html');
+			header('Location: ../index.html?subscribed="1"');
 			return ['ok' => 1, "Подписались"];
 		} else {
 			//	Возвращаем все ошибки
@@ -155,7 +155,8 @@ class mixplat{
 		if(empty($user_phone)) return null;
 
 		//	Убираем все знаки
-		$phone = preg_replace("/[^0-9]/", "", $user_phone);
+    $phone = preg_replace("/[^0-9]/", "", $user_phone);
+    // return ["error" => $phone];
 
 		// if(strlen($phone) < 10) return null;
 		if(strlen($phone) < 10) return ["error" => "Слишком короткий номер"];

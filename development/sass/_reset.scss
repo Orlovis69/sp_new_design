@@ -14,7 +14,12 @@ html {
   box-sizing: inherit;
 }
 body {
-  max-width: 100%;
+  width: 100%;
+  display: block;
+}
+.container {
+  overflow: hidden;
+  height: 100%;
 }
 
 input,

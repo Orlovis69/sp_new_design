@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "sass": "node-sass development/sass/main.scss development/css/style.css -w",
-    "build": "gulp"
+    "build": "gulp",
+    "optimize": "svgo -f development/svg-raw -o development/img"
   },
   "repository": {
     "type": "git",
@@ -44,7 +45,8 @@
     "stylelint-config-standard": "^19.0.0",
     "stylelint-order": "^3.1.1",
     "stylelint-prettier": "^1.1.2",
-    "stylelint-scss": "^3.13.0"
+    "stylelint-scss": "^3.13.0",
+    "svgo": "^1.3.2"
   },
   "dependencies": {},
   "postcss": {

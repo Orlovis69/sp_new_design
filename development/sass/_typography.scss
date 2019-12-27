@@ -6,7 +6,7 @@
 %heading {
   font-family: $font-heading;
   font-weight: bold;
-  line-height: 1.2;
+  line-height: 1.18;
 }
 %paragraph {
   font-family: $font-main;
@@ -18,100 +18,173 @@
   &-1 {
     @extend %title;
     font-size: 3.2em;
+    font-size: 3.689em; // 72px 1152
+    // font-size: 38px;
+    @media screen and (max-width: $bp-medium) {
+      font-size: 2.8em;
+    }
     @media screen and (max-width: $bp-small) {
       font-size: 2.5em;
+    }
+    @media screen and (max-width: $bp-smallest) {
+      // font-size: 2.2em;
       // font-size: 8.75vw;
     }
   }
   &-2 {
     @extend %heading;
-    font-size: 1.875em;
+    font-size: 1.434em; // 28px 1152
+    font-size: 2.1516em; // 42px 1152
+    line-height: 1.21;
+    line-height: 1.1;
     @media screen and (max-width: $bp-small) {
-      font-size: 2.5em;
-      // font-size: 9vw;
+      // font-size: 2.15em;
+      font-size: 9.0625vw; // 29px
     }
   }
   &-3 {
     @extend %heading;
-    font-size: 1.1em;
+    // line-height: 1.18;
+    font-size: 1.127em;
+    font-size: 1.2295em; // 24px 1152
+    @media screen and (max-width: $bp-small) {
+      // font-size: 2.15em;
+      font-size: 5.625vw; // 18px
+    }
   }
   &-4 {
     @extend %heading;
     font-size: 0.9em;
+    font-size: 1.0246em; // 20px 1152
+    @media screen and (max-width: $bp-small) {
+      // font-size: 2.15em;
+      font-size: 5.625vw; // 18px
+    }
   }
 }
 .paragraph {
   @extend %paragraph;
-  font-size: 1em;
+  font-size: 0.8197em;
+  font-size: 0.9221em; // 16px 1152
+  // font-size: 1.2295em; // 16px 1152
+  @media screen and (max-width: $bp-small) {
+    // font-size: 2.15em;
+    font-size: 5vw; // 16px
+  }
 }
 
 .header--hero {
-  & span {
+  & span:nth-of-type(2) {
     color: $color-pink;
   }
 }
 
 .main--section {
   @media screen and (max-width: $bp-small) {
-    font-size: 1.4em;
+    // font-size: 1.4em;
   }
 }
 .features {
   & span {
+    // @extend %paragraph;
     @media screen and (max-width: $bp-small) {
-      font-size: 0.5em;
+      font-family: $font-main;
+      font-weight: 400;
+      font-size: 5vw;
     }
   }
   &-caption {
     @extend %paragraph;
     text-align: center;
-    font-size: 1.1em;
+    font-size: 1.2295em;
     @media screen and (max-width: $bp-small) {
       text-align: left;
-      // font-size: 1.5em;
+      font-size: 5vw;
     }
   }
   & .paragraph {
-    font-size: 1.4em;
+    font-size: 1.5881em;
     @media screen and (max-width: $bp-small) {
-      font-size: 1em;
+      font-size: 5vw;
     }
   }
 }
 .procedure {
   color: $color-white;
   &-item:nth-child(2) {
-    text-align: right;
+    text-align: left;
   }
+  & .section-link,
+  & .paragraph {
+    @extend %paragraph;
+    font-size: 1.2295em;
+    @media screen and (max-width: $bp-small) {
+      font-size: 5vw;
+    }
+  }
+  // & .paragraph {
+  //   font-size: 1.2295em;
+  //   @media screen and (max-width: $bp-small) {
+  //     font-size: 5vw;
+  //   }
+  // }
 }
 .form {
   & input[type="tel"],
   & label {
-    font-size: 0.8em;
-    color: $color-grey-dark;
+    font-family: $font-main;
+    font-weight: 400;
+    line-height: normal;
     @media screen and (max-width: $bp-small) {
-      font-size: 1em;
+      // font-size: 0.8em;
+      // font-size: 0.8rem;
     }
   }
   & input[type="tel"] {
-    &:placeholder-shown label {
-      font-size: 0.6em;
+    font-size: 16px;
+    // font-size: 0.71em;
+    color: black;
+    cursor: auto;
+    @media screen and (max-width: $bp-small) {
+      font-size: 13px;
     }
+    &:placeholder-shown {
+      // font-size: 0.6em;
+    }
+  }
+  & label {
+    font-size: 13px;
+    // font-size: 0.58em;
+    color: $color-grey-dark;
+
+    @media screen and (max-width: $bp-small) {
+      font-size: 10px;
+    }
+  }
+  & .error {
+    @extend %paragraph;
+    font-size: 0.7em;
   }
 }
 .btn {
   color: $color-white;
   font-family: $font-main--bold;
-  font-size: 1em;
+  font-size: 1.127em;
   line-height: 1.38;
   @media screen and (max-width: $bp-small) {
-    // font-size: 1.4em;
+    font-size: 5vw;
   }
   &:hover {
     color: $color-white;
   }
 }
 .cta {
+  & .paragraph {
+    font-size: 0.8888em;
+    @media screen and (max-width: $bp-small) {
+      font-size: 5vw;
+    }
+  }
   & a.link--offer {
     text-decoration: underline;
     &,
@@ -126,15 +199,52 @@
     }
   }
   .error {
-    color: $color-pink;
+    color: #d72f4b;
   }
 }
 .faq {
+  .heading-4 {
+    font-size: 1.0246em;
+    @media screen and (max-width: $bp-small) {
+      font-size: 5.625vw;
+    }
+  }
   .paragraph {
-    font-size: 0.8em;
+    font-size: 0.9221em;
+    @media screen and (max-width: $bp-small) {
+      font-size: 5vw;
+    }
   }
 }
 
 .footer {
+  .paragraph {
+    font-size: 0.8197em;
+    @media screen and (max-width: $bp-small) {
+      font-size: 5vw;
+    }
+  }
   color: $color-grey-dark;
+  & a.link--offer {
+    text-decoration: underline;
+    &,
+    &:link,
+    &:visited {
+      color: currentColor;
+    }
+    &:hover,
+    &:focus,
+    &:active {
+      color: $color-blue;
+    }
+  }
+}
+
+.font-title {
+  font-family: $font-title;
+  // font-size: 52px;
+  line-height: 1;
+  @media screen and (max-width: $bp-small) {
+    // font-size: 1em;
+  }
 }
