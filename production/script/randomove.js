@@ -1,7 +1,6 @@
 // get all elements
 const parallax = document.querySelectorAll(".parallax");
 
-// function random translate change
 function randomMove(element) {
   const transformText = `translate3d(${randomGet(-10, 10)}vw, ${randomGet(
     -10,
@@ -9,19 +8,15 @@ function randomMove(element) {
   )}vw, 0px) rotate3d(0, 0, 1, ${randomGet(-45, 45)}deg)`;
 
   element.style.transform = transformText;
-
-  // debugger;
 }
 
 function allParallaxMove() {
-  // clearInterval();
   parallax.forEach(element => {
     randomMove(element);
   });
 }
 
 function singleParallaxMove(e) {
-  // console.log("hi4");
   const target = e.target;
   randomMove(target);
 }
@@ -46,13 +41,6 @@ function debounce(func, wait = 200, immediate = true) {
     if (callNow) func.apply(context, args);
   };
 }
-
-// function repeatAnimation() {
-//   parallax.forEach(element => {
-//     randomMove(element);
-//   });
-//   requestAnimationFrame(repeatAnimation);
-// }
 
 // Event listeners
 window.addEventListener("scroll", debounce(allParallaxMove));

@@ -18,58 +18,48 @@
   &-1 {
     @extend %title;
     font-size: 3.2em;
-    font-size: 3.689em; // 72px 1152
-    // font-size: 38px;
+    font-size: 3.689em;
     @media screen and (max-width: $bp-medium) {
       font-size: 2.8em;
     }
     @media screen and (max-width: $bp-small) {
       font-size: 2.5em;
     }
-    @media screen and (max-width: $bp-smallest) {
-      // font-size: 2.2em;
-      // font-size: 8.75vw;
-    }
   }
   &-2 {
     @extend %heading;
-    font-size: 1.434em; // 28px 1152
-    font-size: 2.1516em; // 42px 1152
+    font-size: 1.434em;
+    font-size: 2.1516em;
     line-height: 1.21;
     line-height: 1.1;
     @media screen and (max-width: $bp-small) {
-      // font-size: 2.15em;
-      font-size: 9.0625vw; // 29px
+      font-size: 9.0625vw;
     }
   }
   &-3 {
     @extend %heading;
-    // line-height: 1.18;
+
     font-size: 1.127em;
-    font-size: 1.2295em; // 24px 1152
+    font-size: 1.2295em;
     @media screen and (max-width: $bp-small) {
-      // font-size: 2.15em;
-      font-size: 5.625vw; // 18px
+      font-size: 5.625vw;
     }
   }
   &-4 {
     @extend %heading;
     font-size: 0.9em;
-    font-size: 1.0246em; // 20px 1152
+    font-size: 1.0246em;
     @media screen and (max-width: $bp-small) {
-      // font-size: 2.15em;
-      font-size: 5.625vw; // 18px
+      font-size: 5.625vw;
     }
   }
 }
 .paragraph {
   @extend %paragraph;
   font-size: 0.8197em;
-  font-size: 0.9221em; // 16px 1152
-  // font-size: 1.2295em; // 16px 1152
+  font-size: 0.9221em;
   @media screen and (max-width: $bp-small) {
-    // font-size: 2.15em;
-    font-size: 5vw; // 16px
+    font-size: 5vw;
   }
 }
 
@@ -79,14 +69,8 @@
   }
 }
 
-.main--section {
-  @media screen and (max-width: $bp-small) {
-    // font-size: 1.4em;
-  }
-}
 .features {
   & span {
-    // @extend %paragraph;
     @media screen and (max-width: $bp-small) {
       font-family: $font-main;
       font-weight: 400;
@@ -122,12 +106,6 @@
       font-size: 5vw;
     }
   }
-  // & .paragraph {
-  //   font-size: 1.2295em;
-  //   @media screen and (max-width: $bp-small) {
-  //     font-size: 5vw;
-  //   }
-  // }
 }
 .form {
   & input[type="tel"],
@@ -135,30 +113,27 @@
     font-family: $font-main;
     font-weight: 400;
     line-height: normal;
-    @media screen and (max-width: $bp-small) {
-      // font-size: 0.8em;
-      // font-size: 0.8rem;
-    }
   }
   & input[type="tel"] {
     font-size: 16px;
-    // font-size: 0.71em;
     color: black;
     cursor: auto;
     @media screen and (max-width: $bp-small) {
       font-size: 13px;
     }
-    &:placeholder-shown {
-      // font-size: 0.6em;
+    @media screen and (min-width: $bp-largest) {
+      font-size: 1.4035vw;
     }
   }
   & label {
     font-size: 13px;
-    // font-size: 0.58em;
     color: $color-grey-dark;
 
     @media screen and (max-width: $bp-small) {
       font-size: 10px;
+    }
+    @media screen and (min-width: $bp-largest) {
+      font-size: 0.9028vw;
     }
   }
   & .error {
@@ -242,9 +217,5 @@
 
 .font-title {
   font-family: $font-title;
-  // font-size: 52px;
   line-height: 1;
-  @media screen and (max-width: $bp-small) {
-    // font-size: 1em;
-  }
 }

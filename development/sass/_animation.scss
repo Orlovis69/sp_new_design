@@ -1,13 +1,7 @@
-@keyframes strokeWave {
-  0% {
-    stroke-dashoffset: 90;
-  }
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
-
 @keyframes appear {
+  0% {
+    opacity: 1;
+  }
   100% {
     opacity: 0;
   }
@@ -20,43 +14,16 @@
   20% {
     opacity: 0;
   }
-  80% {
+  40% {
     opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 1;
   }
   100% {
     opacity: 1;
-  }
-}
-
-@keyframes color {
-  0% {
-    fill: $color-pink;
-  }
-  20% {
-    fill: $color-black;
-  }
-  100% {
-    fill: $color-black;
-  }
-}
-
-// features icons
-@keyframes stroke {
-  0% {
-    stroke-dashoffset: 1000;
-  }
-  100% {
-    stroke-dashoffset: 0;
-  }
-}
-@keyframes stroke-back {
-  0% {
-    stroke-dashoffset: -1000;
-  }
-  40% {
-    stroke-dashoffset: 0;
-  }
-  100% {
-    stroke-dashoffset: 0;
   }
 }

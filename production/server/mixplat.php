@@ -94,30 +94,24 @@ class mixplat{
 			/*"merchant_subscription_id"=>$merchant_subscription_id,*/
 			"signature"=>$signature,
 
-			"merchant_data"=>"fckreality" /*Произвольные данные ТСП, связанные с подпиской.*/
+			"merchant_data"=>"v2.0" /*Произвольные данные ТСП, связанные с подпиской.*/
 		];
 
 
 		//	CREATE CURL SEND
 		$curl_out = self::curl_create(self::$url_create_subscription,$post_fields);
-
-		// print_r($curl_out);
-
+    
 		//	Получилось подписаться
-		if(!empty($curl_out['result']) && $curl_out['result']=='ok') {
-			//redirect to success page
-			header('Location: ../index.html?subscribed="1"');
+		if(!empty($curl_out['result']) && ($curl_out['result']=='ok')) {
 			return ['ok' => 1, "Подписались"];
 		} else {
-			//	Возвращаем все ошибки
+      //	Возвращаем все ошибки
 			if(!empty($curl_out['error_description'])) 
-			// echo 'Error';
-			return ["error"=>$curl_out['error_description']];
-		}
-		
+      return ["error"=>$curl_out['error_description']];
+      
+		}	
 		// echo 'Error';
 		return ['error'=>"Не подписались, попробуйте снова"];
-
 	}
 	//============================================
 
@@ -156,9 +150,7 @@ class mixplat{
 
 		//	Убираем все знаки
     $phone = preg_replace("/[^0-9]/", "", $user_phone);
-    // return ["error" => $phone];
 
-		// if(strlen($phone) < 10) return null;
 		if(strlen($phone) < 10) return ["error" => "Слишком короткий номер"];
 
 		//	Убираем все возможные цифры слева.

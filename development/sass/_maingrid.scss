@@ -1,10 +1,6 @@
-body {
-  // overflow-x: hidden;
-}
 .main--page {
   & section {
     position: relative;
-    // overflow: hidden;
   }
 }
 
@@ -40,7 +36,6 @@ body {
       position: absolute;
       top: 5%;
       right: 5%;
-      // transform: translateY(-50%);
     }
     & .box {
       top: 30%;
@@ -62,7 +57,6 @@ body {
     .wave {
       top: 65%;
       right: 0%;
-      // transform: translate3d(1em, 1em, 1em) rotate3d(0, 0, 1, 15deg);
     }
   }
 }
@@ -118,7 +112,7 @@ body {
         left: 47%;
       }
       @media screen and (max-width: $bp-smaller) {
-        top: 16%;
+        top: 18%;
         left: 51%;
       }
     }
@@ -147,7 +141,6 @@ body {
       top: 38%;
       left: 5%;
       @media screen and (max-width: $bp-small) {
-        // top: 38%;
         left: 14%;
       }
     }
@@ -200,9 +193,6 @@ body {
       position: absolute;
       top: 6px;
       left: 0;
-      // @media screen and (max-width: $bp-small) {
-      //   top: -30%;
-      // }
     }
     & .error {
       position: absolute;
@@ -227,7 +217,6 @@ body {
   .wave {
     top: 4%;
     right: 5%;
-    // transform: translate3d(1em, 1em, 1em) rotate3d(0, 0, 1, 5deg);
   }
   & .box {
     bottom: -3%;
@@ -236,41 +225,10 @@ body {
   }
 }
 
-.icon--close-arrow {
-  position: absolute;
-  top: 1.5em;
-  right: 1em;
-  &::before,
-  &::after {
-    position: relative;
-  }
-  &::before {
-    left: 0.9em;
-    top: -0.2em;
-    @media screen and (max-width: $bp-small) {
-      left: 25%;
-      top: -0.2em;
-    }
-  }
-  &::after {
-    left: 1.8em;
-    top: -0.2em;
-    @media screen and (max-width: $bp-small) {
-      left: 75%;
-      top: -0.2em;
-    }
-  }
-}
-
 .footer {
   position: relative;
   overflow: hidden;
   & .box {
-    // &:nth-last-of-type(2) {
-    //   top: 5%;
-    //   left: 1%;
-    //   transform: translate3d(1em, 1em, 1em) rotate3d(0, 0, 1, -45deg);
-    // }
     &:last-of-type {
       bottom: 5%;
       right: 4%;

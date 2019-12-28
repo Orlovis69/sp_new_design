@@ -175,6 +175,9 @@ ul {
   @media screen and (max-width: 37.5em) {
     .form input[type="tel"] {
       font-size: 13px; } }
+  @media screen and (min-width: 112.5em) {
+    .form input[type="tel"] {
+      font-size: 1.4035vw; } }
 
 .form label {
   font-size: 13px;
@@ -182,6 +185,9 @@ ul {
   @media screen and (max-width: 37.5em) {
     .form label {
       font-size: 10px; } }
+  @media screen and (min-width: 112.5em) {
+    .form label {
+      font-size: 0.9028vw; } }
 
 .form .error {
   font-size: 0.7em; }
@@ -695,6 +701,8 @@ ul {
   @media screen and (max-width: 37.5em) {
     .cta .main--section {
       padding: 7.5vw 5.6vw 0; } }
+  .cta .main--section h4 {
+    margin: 2.3vw 0; }
 
 .form {
   margin-bottom: 2.3vw;
@@ -717,6 +725,11 @@ ul {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
     border-bottom: 2px solid #626469; }
+    @media screen and (min-width: 112.5em) {
+      .form input[type="tel"] {
+        width: 22vw;
+        height: 5.61vw;
+        padding: 1.33vw; } }
     .form input[type="tel"].__error {
       display: inline-block;
       border-bottom: 2px solid #d72f4b;
@@ -724,18 +737,18 @@ ul {
       background-size: 5%;
       background-position: 98% 59%;
       background-repeat: no-repeat; }
-      .form input[type="tel"].__error + .error {
+      @media screen and (min-width: 112.5em) {
+        .form input[type="tel"].__error {
+          background-position: 98% 53%; } }
+      .form input[type="tel"].__error ~ .error {
         display: block; }
     @media screen and (max-width: 37.5em) {
       .form input[type="tel"] {
         width: 88.8vw;
         height: 15vw; } }
-    .form input[type="tel"]:placeholder-shown {
-      box-shadow: none;
-      padding: 1.2em; }
-      .form input[type="tel"]:placeholder-shown + label {
-        visibility: hidden;
-        opacity: 0; }
+    .form input[type="tel"]:placeholder-shown + label {
+      visibility: hidden;
+      opacity: 0; }
     .form input[type="tel"]:not(:placeholder-shown) {
       padding-top: 1.2em; }
   .form label {
@@ -931,7 +944,11 @@ ul {
   background-color: #1f2229; }
 
 .parallax {
+  display: none;
   z-index: 2; }
+
+.procedure {
+  display: none; }
 
 .stroke-black {
   fill: none;

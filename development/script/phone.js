@@ -1,205 +1,100 @@
-function InputMask(element) {
-  var self = this;
-
-  self.element = element;
-
-  self.mask = element.attributes["input-mask"].nodeValue;
-  self.numberLength = (self.mask.match(/_/g) || []).length;
-  self.currentNumber = "";
-
-  self.keyEventHandler = function(obj) {
-    obj.preventDefault();
-
-    let bufferPos = self.displayPosToBufferPos(self.element.selectionStart);
-
-    if (obj.keyCode == 8) {
-      let index = bufferPos - 1;
-      if (index < self.currentNumber.length && index >= 0) {
-        var array = self.currentNumber.split("");
-        array.splice(index, 1);
-        self.currentNumber = array.join("");
-      }
-    } else if (obj.keyCode == 46) {
-      let index = bufferPos;
-
-      if (index < self.currentNumber.length && index >= 0) {
-        var array = self.currentNumber.split("");
-        array.splice(index, 1);
-        self.currentNumber = array.join("");
-      }
-    } else if (obj.keyCode >= 48 && obj.keyCode <= 57) {
-      let index = self.displayPosToBufferPos(self.element.selectionStart);
-      self.currentNumber =
-        self.currentNumber.slice(0, index) +
-        String.fromCharCode(obj.which) +
-        self.currentNumber.slice(index, self.currentNumber.length);
+class PhoneField {
+  constructor(a, b = "+7(___)___-____", c = "_") {
+    (this.handler = a),
+      (this.mask = b),
+      (this.placeholder = c),
+      this.setLength(),
+      this.setStartValue(),
+      (this.start = this.placeHolderPosition() - 1),
+      this.handler.addEventListener("focusin", () => {
+        this.setValue();
+        this.focused();
+      }),
+      this.handler.addEventListener("blur", () => {
+        this.blured();
+      }),
+      this.handler.addEventListener("keydown", d => {
+        this.input(d);
+      });
+  }
+  blured() {
+    const noInput = this.handler.value.match(/[0-9]/g).join("");
+    if (noInput === "7") {
+      this.handler.value = "";
     }
-
-    if (self.currentNumber.length > self.numberLength) {
-      self.currentNumber = self.currentNumber.slice(0, self.numberLength);
+  }
+  focused() {
+    let a = this.placeHolderPosition();
+    (this.handler.selectionStart = a), (this.handler.selectionEnd = a);
+  }
+  input(a) {
+    if ((this.isDirectionKey(a.key) || a.preventDefault(), this.isNum(a.key)))
+      this.changeChar(a.key);
+    else if (this.isDeletionKey(a.key))
+      if ("Backspace" === a.key) {
+        let b = this.start;
+        this.changeChar(this.placeholder, -1, b);
+      } else this.changeChar(this.placeholder);
+  }
+  setLength() {
+    this.handler.maxLength = this.mask.length;
+  }
+  setStartValue() {
+    this.handler.value = "";
+  }
+  setValue() {
+    if (this.handler.value == "") {
+      this.handler.value = this.mask;
     }
-
-    self.render();
-    self.moveCursor(obj);
-  };
-
-  self.onClick = function(event) {
-    self.moveCursor();
-  };
-
-  self.moveCursor = function(obj) {
-    var newPosition = self.displayPosToBufferPos(self.element.selectionStart);
-
-    if (obj != undefined) {
-      if (obj.keyCode == 8) {
-        newPosition--;
-      } else if (
-        (obj.keyCode >= 37 && obj.keyCode <= 40) ||
-        obj.keyCode == 46
-      ) {
-      } else {
-        newPosition += 1;
-      }
-    }
-
-    let nextDigitIndex = self.displayPosToBufferPos(self.lastDigitIndex() + 1);
-
-    if (newPosition > nextDigitIndex) {
-      newPosition = nextDigitIndex;
-    }
-
-    newPosition = self.bufferPosToDisplayPos(newPosition);
-
-    self.element.setSelectionRange(newPosition, newPosition);
-  };
-
-  self.render = function() {
-    var bufferCopy = self.currentNumber;
-    var ret = {
-      muskifiedValue: ""
-    };
-
-    let selectionStart = self.element.selectionStart;
-
-    var lastChar = 0;
-
-    for (var i = 0; i < self.mask.length; i++) {
-      if (self.mask.charAt(i) == "_" && bufferCopy) {
-        ret.muskifiedValue += bufferCopy.charAt(0);
-        bufferCopy = bufferCopy.substr(1);
-        lastChar = i;
-      } else {
-        ret.muskifiedValue += self.mask.charAt(i);
-      }
-    }
-
-    self.element.value = ret.muskifiedValue;
-    self.element.setSelectionRange(selectionStart, selectionStart);
-  };
-
-  self.lastDigitIndex = function() {
-    var lastDigitIndex = 0;
-
-    for (var i = self.element.value.length - 1; i >= 0; i--) {
-      if ("0123456789".includes(self.element.value.charAt(i)) && i != 1) {
-        lastDigitIndex = i;
-        break;
-      }
-    }
-
-    return lastDigitIndex;
-  };
-
-  self.bufferPosToDisplayPos = function(bufferIndex) {
-    let minDisplayPos = 4;
-
-    var offset = 0;
-
-    var mBufferIndex = bufferIndex;
-
-    for (var i = 0; mBufferIndex >= 0 && i <= self.mask.length; i++) {
-      if (self.mask.charAt(i) == "_") {
-        mBufferIndex -= 1;
-      }
-      offset = i;
-
-      if (mBufferIndex == 0) {
-        offset += 1;
-        break;
-      }
-    }
-
-    return offset < minDisplayPos ? minDisplayPos : offset;
-  };
-
-  self.displayPosToBufferPos = function(displayIndex) {
-    var bufferPos = 0;
-
-    for (var i = 0; i < displayIndex; i++) {
-      if (self.mask.charAt(i) == "_") {
-        bufferPos += 1;
-      }
-    }
-
-    return bufferPos;
-  };
-
-  self.getValue = function() {
-    return this.inputBuffer;
-  };
-  // self.element.onkeydown = self.keyEventHandler;
-  self.element.onkeypress = self.keyEventHandler;
-
-  self.element.onclick = self.onClick;
+  }
+  isNum(a) {
+    return !isNaN(a) && parseInt(+a) == a && !isNaN(parseInt(a, 10));
+  }
+  isDeletionKey(a) {
+    return "Delete" === a || "Backspace" === a;
+  }
+  isDirectionKey(a) {
+    return (
+      "ArrowUp" === a ||
+      "ArrowDown" === a ||
+      "ArrowRight" === a ||
+      "ArrowLeft" === a ||
+      "Tab" === a
+    );
+  }
+  isPlaceholder(a) {
+    return a == this.placeholder;
+  }
+  placeHolderPosition() {
+    return this.handler.value.indexOf(this.placeholder);
+  }
+  changeChar(a, b = 1, c = this.mask.length) {
+    let d = this.handler.value,
+      f;
+    f = 0 < b ? this.handler.selectionStart : this.handler.selectionStart - 1;
+    let g = "";
+    if (f === c) return !1;
+    if (!this.isNum(d[f]) && !this.isPlaceholder(d[f]))
+      do if (((f += b), f === c)) return !1;
+      while (!this.isNum(d[f]) && !this.isPlaceholder(d[f]));
+    (g = this.replaceAt(d, f, a)),
+      (this.handler.value = g),
+      0 < b && (f += b),
+      (this.handler.selectionStart = f),
+      (this.handler.selectionEnd = f);
+  }
+  replaceAt(a, b, c) {
+    return a.substring(0, b) + c + a.substring(++b);
+  }
 }
 
-var maskInstance = new InputMask(document.querySelector("#phone"));
+document.addEventListener("DOMContentLoaded", function() {
+  "use strict";
+  const input = document.querySelector(".form-input");
 
-//////// test version of script
-const errorBlock = document.querySelector(".error");
-const inputPhone = document.querySelector("#phone");
-// console.log(inputPhone.value);
-
-inputPhone.addEventListener("focus", function(e) {
-  // console.log(this);
-  const inputValue = this.value;
-  if (inputValue === "") {
-    this.value = "+7 ";
-  }
-  // this.value = inputValue.match(/[0-9]/g).join();
-  errorBlock.textContent = "Заполните правильно это поле";
+  const phoneMask = new PhoneField(
+    input,
+    input.dataset.phonemask,
+    input.dataset.placeholder
+  );
 });
-inputPhone.addEventListener("blur", function(e) {
-  // console.log(this);
-  const inputValue = this.value;
-  if (inputValue.match(/\d+/g).join() === "7") {
-    this.value = "";
-    this.classList.remove("__error");
-    errorBlock.textContent = "";
-  }
-  // this.value = inputValue.match(/\d+/g).join();
-});
-//
-
-// const phoneHandler = {
-//   set(target, name, value) {
-//     target[name] = value.match(/[0-9]/g).join("");
-//   },
-//   get(target, name) {
-//     return target[name].replace(/(\d{3})(\d{3})(\d{4})/, "+7 ($1)-$2-$3");
-//   }
-// };
-
-// const inputPhone = document.querySelector("#phone");
-// const phone = {
-//   value: inputPhone.value
-// };
-
-// const phoneNumber = new Proxy(phone, phoneHandler);
-
-// function changeInput() {
-//   const inputPhoneValue = inputPhone.value;
-//   console.log(phoneNumber.value);
-// }
-
-// inputPhone.addEventListener("keyup", changeInput);

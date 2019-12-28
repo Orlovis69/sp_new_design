@@ -1,27 +1,14 @@
-// .artboard {
-//   fill: #fff;
-//   &:hover .stroke-black.animate {
-//     animation: stroke 3s linear forwards;
-//   }
-// }
 .stroke-black {
   fill: none;
   stroke: #21232c;
   stroke-width: 8;
   stroke-linejoin: bevel;
   stroke-miterlimit: 10;
-  // stroke-dashoffset: 1000;
   stroke-dasharray: 1000;
   transition: all 0.5s;
 }
 
 .__animate {
-  transform: translateZ(0);
-  // display: none;
-}
-.ok-group,
-.wave-svg {
-  will-change: transform;
   transform: translateZ(0);
 }
 
@@ -30,35 +17,8 @@
   will-change: opacity;
 }
 
-.features-item:hover .cracks .stroke-black {
-  animation: stroke 3s linear forwards infinite;
-  // animation: stroke 2s forwards ease-in;
-}
-
-.features-item:hover .cracks .stroke-black.in {
-  // animation: stroke-back 2s forwards ease-in;
-}
-/* Delay for last crack */
-.features-item:hover .cracks .stroke-black.out.delay {
-  // animation: stroke 2s infinite forwards ease-in;
-  // animation-delay: 1s;
-}
-
-// .artboard {
-//   fill: #fff;
-// }
-
-// .cracks .stroke-black {
-//   stroke-dashoffset: 0;
-//   stroke-dasharray: 1000;
-// }
-// .cracks .stroke-black.in {
-//   stroke-dashoffset: 0;
-//   stroke-dasharray: 1000;
-// }
-
 .spark {
-  animation: appear 2s linear infinite;
+  animation: appear 3s linear infinite;
 }
 #sparks .spark:nth-of-type(1) {
   animation-delay: 0;
@@ -76,28 +36,16 @@
   will-change: opacity;
 }
 
-.wave-svg {
-  stroke-width: 8;
-  stroke: #01cbfd;
-  stroke-dasharray: 90;
-  animation: strokeWave 2s forwards;
-  stroke-dashoffset: 0;
-}
-
 .ok-group {
   stroke-width: 3;
   stroke: $color-white;
   stroke-dasharray: 1000;
   stroke-dashoffset: 0;
-  will-change: transform(translateZ);
+  transform: translateZ(0);
 }
 
 .procedure-item:hover .ok-group {
   animation: stroke 2s forwards infinite;
-}
-
-#message {
-  fill: black;
 }
 
 .check-group {
@@ -119,26 +67,8 @@
       animation-delay: 2s;
     }
   }
-  & .check-box {
-    // fill: $color-pink;
-    &:nth-child(1) {
-      animation-delay: 1s;
-    }
-    &:nth-child(3) {
-      animation-delay: 2s;
-    }
-    &:nth-child(5) {
-      animation-delay: 3s;
-    }
-    &:nth-child(7) {
-      animation-delay: 4s;
-    }
-  }
 }
 svg:hover {
-  & .check-box {
-    // animation: color 5s linear inf inite alternate;
-  }
   & .ok {
     animation: ok 5s linear forwards infinite;
   }
